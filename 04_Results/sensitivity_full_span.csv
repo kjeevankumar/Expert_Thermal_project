@@ -1,0 +1,4 @@
+Parameter,Output,Min_Value,Max_Value,Total_Delta,Percent_Change_vs_Ref,Linearity
+TDP (30 to 250 W),T_j [°C],36.07614805621945,117.30123380182879,81.22508574560933,101.05043255580793,Strictly Linear (R² = 1.0000)
+V_air (0.5 to 15 m/s),R_total [°C/W],0.2749004551619917,0.4104343723133195,-0.1355339171513278,36.70967103276209,"Nonlinear (V^(-1/3) power law, diminishing returns)"
+k_tim (1 to 12 W/m.K),R_total [°C/W],0.36215026148597473,0.40095096695334687,-0.03880070546737213,10.509259700330075,"Nonlinear (1/k hyperbolic decay, asymptotic saturation)"

@@ -1,0 +1,64 @@
+{
+    "project": "Expert Thermal / XThermal Heat Sink Surrogate Model",
+    "date_created": "2026-11-06 14:52:31",
+    "features": {
+        "names": [
+            "TDP",
+            "V_air",
+            "k_tim"
+        ],
+        "units": [
+            "W",
+            "m/s",
+            "W/(m*K)"
+        ],
+        "descriptions": [
+            "Processor Thermal Design Power",
+            "Inlet cooling air velocity",
+            "Thermal Interface Material thermal conductivity"
+        ]
+    },
+    "targets": {
+        "names": [
+            "R_total",
+            "T_j"
+        ],
+        "units": [
+            "\u00b0C/W",
+            "\u00b0C"
+        ],
+        "descriptions": [
+            "Total junction-to-ambient thermal resistance",
+            "Predicted processor junction temperature"
+        ]
+    },
+    "models": {
+        "Random_Forest": {
+            "algorithm": "RandomForestRegressor",
+            "parameters": {
+                "n_estimators": 200,
+                "random_state": 42,
+                "n_jobs": -1
+            },
+            "file": "random_forest_model.joblib"
+        },
+        "Gradient_Boosting": {
+            "algorithm": "MultiOutputRegressor(GradientBoostingRegressor)",
+            "parameters": {
+                "n_estimators": 200,
+                "learning_rate": 0.05,
+                "max_depth": 3,
+                "random_state": 42
+            },
+            "file": "gradient_boosting_model.joblib"
+        }
+    },
+    "training_data": {
+        "dataset": "02_Dataset/thermal_dataset.csv",
+        "total_samples": 8280,
+        "train_samples": 6624,
+        "test_samples": 1656,
+        "split_ratio": "80/20",
+        "random_state": 42
+    }
+}
